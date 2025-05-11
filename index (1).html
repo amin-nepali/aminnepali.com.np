@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/css/style.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="header-div">
+            <div class="container">
+                <div class="flex header-flex space-between align-center">
+                    <div class="flex gap-20 align-center">
+                        <div class="logo-img"><a href="/">
+                            <img src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/images/pp-fv.svg" alt="" class="img-responsive">
+                        </a></div>
+                        <ul class="menu-list">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#" class="active">Send</a></li>
+                            <li><a href="#">Wallet</a></li>
+                            <li><a href="#">Activity</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex align-center gap-20">
+                        <div class="dp-icon">
+                            <a href="#">
+                                <img src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/images/bell.svg" alt="" class="icon">
+                            </a>
+                        </div>
+                        <div class="dp-icon">
+                            <a href="#">
+                                <img src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/images/settings.svg" alt="" class="icon">
+                            </a>
+                        </div>
+                        <div><a href="#" class="light-blue font-14">LOG OUT</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="box-section pt-25 pb-25">
+        <div class="sm-container">
+            <a href="#" title="Send" class="white-btn">Send</a>
+        </div>
+    </section>
+
+    <section class="send-section pt-50 pb-100">
+        <div class="sm-container">
+            <div id="send-1">
+                <h2>Send payment to</h2>
+                <div class="mt-30 send-input-wrapper">
+                    <img src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/images/search.svg" alt="" class="icon">
+                    <input type="text" placeholder="Name, @username, email, or mobile" id="userid">
+                </div>
+                <div>
+                    <button class="mt-30 next-btn disabled" id="next-1">Next</button>
+                </div>
+            </div>
+
+            <div  id="send-2" class="none">
+                <div class="receipt-box">
+                    <div class="user-flex flex">
+                        <img src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/images/user.svg" alt="" class="user-img">
+                        <div class="details">
+                            <!-- <div class="name">Jina Abdullah</div> -->
+                            <div class="name" id="username">@jinaabdullah</div>
+                        </div>
+                    </div>
+                    <div class="mt-30 flex align-center justify-center pay-amt">
+                        <span>$</span>
+                        <input type="number" value="00.00" class="price-input" id="fund-value">
+                    </div>
+                    <div class="txt-center secondary mt-30 font-18 fw-700">
+                        USD
+                    </div>
+                    <div class="textarea-div mt-40">
+                        <textarea name="" id="" cols="30" rows="4"></textarea>
+                        <label for="">+ What's this payment for?</label>
+                    </div>
+                </div>
+                <div class="ending-box txt-center">
+                    <p>Eligible purchases are covered by <a href="#">PayPal Buyer Protection</a></p>
+                    <p>For more information please read our <a href="#">user agreement.</a></p>
+                    <div><button class="mt-20 next-btn  disabled" id="fund-btn">Continue</button></div>
+                    <div><button class="mt-20 cancel">Cancel</button></div>
+                </div>
+            </div>
+
+            <div id="processing" class="none txt-center">
+                <h4>Processing Payment...</h4>
+            </div>
+
+            <div id="send-4" class="none">
+                <div class="pop-content">
+                    <img src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/images/tick.svg" alt="" class="icon">
+                    <h3>You've just send $ <span id="send-val"></span> to <span id="usename"></span></h3>
+                    <div><button class="mt-50 next-btn width-100" id="back-btn">Send More Money</button></div>
+                    <div><button class="mt-20 cancel">Go to summary</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="box-section">
+        <div class=" pt-40 pb-40">
+            <div class="sm-container">
+                <div class="flex footer-flexd-1 gap-40">
+                    <div class="footer-logo">
+                        <a href="#">
+                            <img src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/images/PayPal.svg.png" alt="" class="img-responsive">
+                        </a>
+                    </div>
+                    <ul class="footer-list flex gap-20 align-center">
+                        <li><a href="#" title="Help">Help</a></li>
+                        <li><a href="#" title="Contact Us">Contact Us</a></li>
+                        <li><a href="#" title="Securit">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="pt-40 pb-40">
+            <div class="sm-container">
+                <div class="flex footer-flexd-1 gap-30">
+                    <p class="font-14">©1999-2023 PayPal, Inc. All rights reserved.</p>
+                    <ul class="footer-list sm-fl flex gap-20 align-center">
+                        <li><a href="#" title="Privacy">Privacy</a></li>
+                        <li><a href="#" title="Cookies">Cookies</a></li>
+                        <li><a href="#" title="Legal">Legal</a></li>
+                    </ul>
+                </div>
+                <div class="mt-30">
+                    <p class="font-14">PayPal Pte. Ltd. is licensed by the Monetary Authority of Singapore as a Major Payment Institution under the Payment Services Act 2019.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/js/jquery.magnific-popup.js"></script>
+    <script src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/js/script.js"></script>
+</body>
+</html>
