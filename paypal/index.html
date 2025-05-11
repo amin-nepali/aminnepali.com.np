@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Send Money - Demo</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav>
+      <div class="logo">
+        <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="Logo"/>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#" class="active">Send</a></li>
+        <li><a href="#">Wallet</a></li>
+        <li><a href="#">Activity</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="payment-confirmation">
+    <h1 class="balance-title">Demo Balance</h1>
+    <div class="big-number">$68,930,575.23</div>
+    <p class="balance-subtitle">Available balance</p>
+
+    <div class="forms-container">
+      <form id="send-form">
+        <label for="email">Send Payment To:</label>
+        <input type="email" id="email" required/>
+
+        <label for="currency">Select Currency:</label>
+        <select id="currency">
+          <option value="USD">USD</option>
+          <option value="NRP">NRP</option>
+        </select>
+
+        <label for="amount">Enter Amount:</label>
+        <input type="number" id="amount" required min="1"/>
+
+        <button type="submit" class="submit-button">Send Money</button>
+      </form>
+    </div>
+  </main>
+
+  <section class="success-message" id="success-message">
+    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success"/>
+    <p class="success-text">Transfer successful!</p>
+    <p><strong>Processed:</strong> <span id="amount-value"></span> <span id="currency-value"></span> to <span id="email-value"></span>.</p>
+    <button class="return-button" onclick="location.reload()">Return</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
