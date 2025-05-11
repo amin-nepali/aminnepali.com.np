@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Send Money - Demo</title>
+  <title>Send Money</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -23,7 +23,7 @@
   </header>
 
   <main class="payment-confirmation">
-    <h1 class="balance-title">Demo Balance</h1>
+    <h1 class="balance-title">Balance</h1>
     <div class="big-number">$68,930,575.23</div>
     <p class="balance-subtitle">Available balance</p>
 
@@ -34,9 +34,23 @@
 
         <label for="currency">Select Currency:</label>
         <select id="currency">
-          <option value="USD">USD</option>
-          <option value="NRP">NRP</option>
+  <option value="USD">USD - US Dollar</option>
+  <option value="EUR">EUR - Euro</option>
+  <option value="GBP">GBP - British Pound</option>
+  <option value="INR">INR - Indian Rupee</option>
+  <option value="NPR">NPR - Nepalese Rupee</option>
+  <option value="JPY">JPY - Japanese Yen</option>
+  <option value="CNY">CNY - Chinese Yuan</option>
+  <option value="AUD">AUD - Australian Dollar</option>
+  <option value="CAD">CAD - Canadian Dollar</option>
+  <option value="CHF">CHF - Swiss Franc</option>
+  <option value="SGD">SGD - Singapore Dollar</option>
+  <option value="ZAR">ZAR - South African Rand</option>
+  <option value="BRL">BRL - Brazilian Real</option>
+  <option value="PKR">PKR - Pakistani Rupee</option>
+  <option value="THB">THB - Thai Baht</option>
         </select>
+
 
         <label for="amount">Enter Amount:</label>
         <input type="number" id="amount" required min="1"/>
@@ -48,7 +62,7 @@
 
   <section class="success-message" id="success-message">
     <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success"/>
-    <p class="success-text">Transfer successful!</p>
+    <p class="success-text">Transfer successful! User will receive the amount in a short time</p>
     <p><strong>Processed:</strong> <span id="amount-value"></span> <span id="currency-value"></span> to <span id="email-value"></span>.</p>
     <button class="return-button" onclick="location.reload()">Return</button>
   </section>
