@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://paypal-payment-gamma.vercel.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Money</title>
+  <link rel="stylesheet" href="./Send Money_files/styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+      <div class="logo">
+        <a href="./Send Money_files/PayPal-logo-white-png-horizontal.png" target="_blank">
+          <img src="./Send Money_files/PayPal-logo-white-png-horizontal.png" alt="Network Logo">
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="https://paypal-payment-gamma.vercel.app/#">Home</a></li>
+        <li><a href="https://paypal-payment-gamma.vercel.app/#" class="active">Send</a></li>
+        <li><a href="https://paypal-payment-gamma.vercel.app/#">Wallet</a></li>
+        <li><a href="https://paypal-payment-gamma.vercel.app/#">Activity</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="payment-confirmation">
+    <h1 class="balance-title">PayPal Balance</h1>
+    <div class="big-number">
+      $68930575.23
+    </div>
+    <p class="balance-subtitle">Available balance</p>
+    <div class="forms-card">
+      <div class="forms-container">
+        <form class="email-form">
+          <label for="email">Send Payment To:</label>
+          <input type="email" id="email" name="email">
+        </form>
+        <form class="currency-form">
+          <label for="currency">Select Currency:</label>
+          <select id="currency" name="currency">
+            <option value="USD">USD</option>
+            <option value="NRP">NRP</option>
+          </select>
+        </form>
+        <form class="amount-form">
+          <label for="amount">Enter Amount:</label>
+          <input type="number" id="amount" name="amount">
+        </form>
+
+      </div>
+      <button class="submit-button" id="submit-button">Send Money</button>
+    </div>
+  </div>
+  <!-- ... (previous HTML content) ... -->
+
+  <div class="success-message" id="success-message">
+    <img src="./Send Money_files/Green-Check-Transparent.png" alt="Payment Success">
+    <p class="success-text">Transfer successfully!</p>
+    <p><strong>Process 24Hr</strong> and the amount <span id="amount-value"></span>$ to <span id="email-value"></span></p>
+    <button class="return-button" id="return-button">Return Back</button>
+  </div>
+
+  <!-- ... (remaining HTML content) ... -->
+
+
+  <script src="./Send Money_files/scripts.js.download"></script>
+
+
+
+</body></html>
