@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subnet Calculator</title>
+  <style>
+    body {
+      background-color: #1e1e2f;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      padding: 6px 10px;
+      margin: 6px;
+      border-radius: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #444;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+    .section {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Subnet Calculator (Client-Side)</h2>
+  <label>IP Address:</label>
+  <input type="text" id="ip" placeholder="e.g., 192.168.0.1">
+  <label>CIDR:</label>
+  <input type="number" id="cidr" min="1" max="30" placeholder="e.g., 26">
+  <button onclick="calculate()">Calculate</button>
+
+  <div id="output" class="section"></div>
+
+  <script>
+    function ipToLong(ip) {
+      return ip.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet), 0) >>> 0;
+    }
+
+    function longToIp(long) {
+      return [24, 16, 8, 0].map(b => (long >>> b) & 255).join('.');
+    }
+
+    function cidrToMask(cidr) {
+      return longToIp(~((1 << (32 - cidr)) - 1));
+    }
+
+    function calculate() {
+      const ipInput = document.getElementById("ip").value;
+      const cidr = parseInt(document.getElementById("cidr").value);
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = "";
+
+      if (!/^(\d{1,3}\.){3}\d{1,3}$/.test(ipInput) || cidr < 1 || cidr > 30) {
+        outputDiv.innerHTML = `<p style="color: red;">Invalid IP or CIDR. Please check your input.</p>`;
+        return;
+      }
+
+      const ipLong = ipToLong(ipInput);
+      const maskLong = ~((1 << (32 - cidr)) - 1) >>> 0;
+      const networkLong = ipLong & maskLong;
+      const broadcastLong = networkLong | ~maskLong;
+
+      const totalHosts = 2 ** (32 - cidr);
+      const usableHosts = totalHosts - 2;
+      const firstUsable = networkLong + 1;
+      const lastUsable = broadcastLong - 1;
+
+      let html = `
+        <h3>Subnet Details</h3>
+        <table>
+          <tr><th>IP Address</th><td>${ipInput}</td></tr>
+          <tr><th>CIDR</th><td>/${cidr}</td></tr>
+          <tr><th>Subnet Mask</th><td>${longToIp(maskLong)}</td></tr>
+          <tr><th>Network Address</th><td>${longToIp(networkLong)}</td></tr>
+          <tr><th>Broadcast Address</th><td>${longToIp(broadcastLong)}</td></tr>
+          <tr><th>Total Hosts</th><td>${totalHosts}</td></tr>
+          <tr><th>Usable Hosts</th><td>${usableHosts}</td></tr>
+          <tr><th>First Usable IP</th><td>${longToIp(firstUsable)}</td></tr>
+          <tr><th>Last Usable IP</th><td>${longToIp(lastUsable)}</td></tr>
+        </table>
+      `;
+
+      html += `<h3 class="section">Usable IPs</h3><table><tr><th>#</th><th>IP Address</th></tr>`;
+      for (let i = 0; i < usableHosts; i++) {
+        const ip = longToIp(firstUsable + i);
+        html += `<tr><td>${i + 1}</td><td>${ip}</td></tr>`;
+      }
+      html += `</table>`;
+
+      outputDiv.innerHTML = html;
+    }
+  </script>
+</body>
+</html>
