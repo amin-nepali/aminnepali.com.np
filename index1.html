@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Together.ai Chatbot</title>
+  <style>
+    body { background: #121212; color: #fff; font-family: sans-serif; padding: 20px; }
+    #chat { max-width: 600px; margin: auto; }
+    .msg { margin: 8px 0; padding: 6px; border-radius: 8px; }
+    .user { background: #1f1f1f; color: #0f0; }
+    .bot { background: #1a1a1a; color: #0ff; }
+    input, button { padding: 10px; font-size: 16px; }
+    button { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <h1>🧠 AI Chatbot (Together.ai)</h1>
+  <div id="chat"></div>
+  <input type="text" id="input" placeholder="Type something..." />
+  <button onclick="send()">Send</button>
+
+  <script>
+    const BACKEND_URL = 'https://your-render-url.onrender.com'; // 🔁 Replace with your actual backend URL
+
+    async function send() {
+      const input = document.getElementById("input");
+      const message = input.value.trim();
+      if (!message) return;
+
+      appendMessage("You", message, "user");
+      input.value = "";
+
+      try {
+        const res = await fetch(`${BACKEND_URL}/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await res.json();
+        appendMessage("Bot", data.reply, "bot");
+      } catch (e) {
+        appendMessage("Bot", "❌ Error connecting to server.", "bot");
+      }
+    }
+
+    function appendMessage(sender, text, cls) {
+      const div = document.getElementById("chat");
+      const msg = document.createElement("div");
+      msg.className = `msg ${cls}`;
+      msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+      div.appendChild(msg);
+      div.scrollTop = div.scrollHeight;
+    }
+  </script>
+</body>
+</html>
