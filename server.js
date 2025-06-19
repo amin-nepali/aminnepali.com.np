@@ -7,6 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+TOGETHER_API_KEY=f0de20a6e55d7c6fde41ef3cca07407b842373215921663cf9e9af3bce891580
+
+
 const TOGETHER_API_KEY = process.env.TOGETHER_API_KEY;
 
 app.post('/chat', async (req, res) => {
