@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Monthly Test — Answers (Dark Theme)</title>
+  <style>
+    :root{
+      --bg:#0f1115;         /* page bg */
+      --card:#0b0d10;       /* card bg */
+      --muted:#9aa6b2;      /* secondary text */
+      --text:#e6eef6;       /* main text */
+      --accent:#3dd6c8;     /* accent color */
+      --accent-2:#7be0b8;
+      --shadow: 0 6px 20px rgba(0,0,0,0.6);
+      --radius:12px;
+      --maxw:900px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Helvetica Neue", monospace;
+      --ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:var(--ui);
+      background:
+        radial-gradient(1000px 400px at 10% 10%, rgba(61,214,200,0.04), transparent 10%),
+        radial-gradient(800px 300px at 90% 80%, rgba(123,224,184,0.03), transparent 10%),
+        var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    .wrap{
+      max-width:var(--maxw);
+      margin:48px auto;
+      padding:28px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:10px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow: 0 6px 18px rgba(61,214,200,0.12), inset 0 -6px 18px rgba(255,255,255,0.03);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#021;
+      font-family:var(--mono);
+      letter-spacing:0.6px;
+    }
+
+    h1{
+      font-size:20px;
+      margin:0;
+      letter-spacing:0.2px;
+    }
+    p.sub{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      margin-top:18px;
+    }
+
+    h2.section{
+      margin:8px 0 8px 0;
+      color:var(--accent);
+      font-size:16px;
+    }
+
+    ol, ul {
+      margin:0 0 12px 18px;
+      padding:0;
+    }
+
+    li{
+      margin:8px 0;
+      color:var(--text);
+    }
+
+    .mcq-opts {
+      margin-top:6px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .answer {
+      display:inline-block;
+      margin-left:8px;
+      padding:2px 8px;
+      border-radius:8px;
+      background:rgba(61,214,200,0.08);
+      color:var(--accent);
+      font-weight:600;
+      font-size:13px;
+    }
+
+    .calc {
+      background:rgba(255,255,255,0.02);
+      border-radius:8px;
+      padding:10px;
+      color:var(--muted);
+      font-family:var(--mono);
+      margin-top:8px;
+      font-size:14px;
+    }
+
+    footer {
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width:520px){
+      .wrap{ padding:14px; margin:18px auto; }
+      header{ gap:10px; }
+      .logo{ width:54px; height:54px; font-size:14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">DB</div>
+      <div>
+        <h1>Dangihat Little Buddha Boarding School — Monthly Test 2082</h1>
+        <p class="sub">Class: Seven · Answers (Dark theme)</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2 class="section">1. MCQs</h2>
+      <ol>
+        <li>
+          a. Which one of the following metals is extracted from hematite?
+          <div class="mcq-opts">Gold &nbsp; silver &nbsp; <strong>iron</strong> &nbsp; zinc
+            <span class="answer">Iron</span>
+          </div>
+        </li>
+        <li>
+          b. Which metal forms rust on its surface?
+          <div class="mcq-opts">Zinc &nbsp; copper &nbsp; aluminium &nbsp; <strong>iron</strong>
+            <span class="answer">Iron</span>
+          </div>
+        </li>
+        <li>
+          c. What is the name of the transition of a solid substance directly into gas?
+          <div class="mcq-opts">Sublimation &nbsp; freezing &nbsp; evaporation &nbsp; condensation
+            <span class="answer">Sublimation</span>
+          </div>
+        </li>
+        <li>
+          d. Which of the following consists of its own type of atoms?
+          <div class="mcq-opts">Electron &nbsp; molecules &nbsp; <strong>elements</strong> &nbsp; compounds
+            <span class="answer">Elements</span>
+          </div>
+        </li>
+      </ol>
+
+      <h2 class="section">2. Very short answer questions</h2>
+      <ol>
+        <li>
+          a. <strong>What is relative density?</strong>
+          <div class="mcq-opts">The ratio of the density of a substance to the density of water at 4°C. <span class="answer">Definition</span></div>
+        </li>
+        <li>
+          b. <strong>What is an element?</strong>
+          <div class="mcq-opts">A pure substance made of only one kind of atom; cannot be broken into simpler substances by chemical means. <span class="answer">Definition</span></div>
+        </li>
+        <li>
+          c. <strong>What is metal?</strong>
+          <div class="mcq-opts">A substance typically hard, shiny, malleable, ductile, and a good conductor of heat & electricity. <span class="answer">Definition</span></div>
+        </li>
+        <li>
+          d. <strong>Mention any one coinage metal.</strong>
+          <div class="mcq-opts">Gold (also: silver, copper). <span class="answer">Gold</span></div>
+        </li>
+      </ol>
+
+      <h2 class="section">3. Short answer questions</h2>
+      <ol>
+        <li>
+          a. <strong>Name any two physical properties of metals.</strong>
+          <div class="mcq-opts">
+            • Good conductor of heat and electricity.<br>
+            • Malleable (can be hammered into sheets) / Ductile (can be drawn into wires).
+            <span class="answer">Two properties</span>
+          </div>
+        </li>
+
+        <li>
+          b. <strong>If the relative density of gold is 19, find its density in the SI unit.</strong>
+          <div class="calc">
+            Given: relative density = 19<br>
+            Density of water (4°C) = 1000 kg/m³<br><br>
+            Density of gold = relative density × density of water<br>
+            Density of gold = 19 × 1000 = <strong>19000 kg/m³</strong>
+          </div>
+        </li>
+      </ol>
+
+      <footer>
+        Completed answers · Time allowed for test: 45 minutes.
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
