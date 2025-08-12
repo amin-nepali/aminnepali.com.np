@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Math — Answers (Dark Theme)</title>
+<style>
+  :root{
+    --bg:#0f1115;
+    --card:#0b0d10;
+    --muted:#98a4ad;
+    --text:#e7eef6;
+    --accent:#4dd6c8;
+    --radius:12px;
+    --maxw:900px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+    --ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:var(--ui);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:36px auto;padding:20px;}
+  header{display:flex;gap:14px;align-items:center;margin-bottom:18px;}
+  .logo{width:62px;height:62px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7be0b8);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;font-family:var(--mono)}
+  h1{margin:0;font-size:18px}
+  p.sub{margin:0;color:var(--muted);font-size:13px}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);border-radius:var(--radius);padding:22px;box-shadow:0 8px 28px rgba(0,0,0,0.6)}
+  h2.section{color:var(--accent);margin:8px 0 12px 0;font-size:15px}
+  ol{margin:0 0 12px 18px;padding:0}
+  li{margin:12px 0}
+  .q{color:var(--text)}
+  .ans{display:block;margin-top:8px;color:var(--muted);background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;font-family:var(--mono);font-size:14px}
+  .small{color:var(--muted);font-size:13px}
+  .svgwrap{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px}
+  svg{background:transparent;border-radius:8px}
+  footer{margin-top:14px;color:var(--muted);font-size:13px}
+  @media(max-width:540px){.wrap{padding:12px}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">DB</div>
+      <div>
+        <h1>DANGIHAT LITTLE BUDDHA BOARDING SCHOOL</h1>
+        <p class="sub">Subject - Maths · monthly test · class 8 — Answers (Dark theme)</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2 class="section">Questions (as written) — with answers</h2>
+
+      <ol>
+        <li>
+          <div class="q">1. find the area of the circle, if diameter = 14 cm <span class="small">(1)</span></div>
+          <div class="ans">
+            Radius r = 14/2 = 7 cm.<br>
+            Area = πr² = π × 7² = 49π cm² ≈ 153.94 cm³ (exact: <code>49π cm²</code>).
+          </div>
+        </li>
+
+        <li>
+          <div class="q">2. a cubical tank is 12m long. What is the volume of the tank. <span class="small">(1)</span></div>
+          <div class="ans">
+            Cube side = 12 m. Volume = side³ = 12³ = 1,728 m³.
+          </div>
+        </li>
+
+        <li>
+          <div class="q">3. Draw the solid object, and their net. <br> a. Triangular prism. <span class="small">(1)</span></div>
+          <div class="ans small">
+            Below is a simple diagram of a triangular prism (3-D) and one possible net (triangles + rectangles).
+          </div>
+
+          <div class="svgwrap">
+            <!-- Simple triangular prism (isometric-ish) -->
+            <svg width="260" height="120" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg" aria-label="Triangular prism">
+              <!-- back triangle -->
+              <polygon points="30,30 70,60 30,90" fill="rgba(123,224,184,0.06)" stroke="rgba(123,224,184,0.5)"/>
+              <!-- front triangle -->
+              <polygon points="120,20 170,60 120,100" fill="rgba(61,214,200,0.06)" stroke="rgba(61,214,200,0.5)"/>
+              <!-- connecting rectangles (sides) -->
+              <polygon points="30,30 120,20 170,60 70,60" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+              <polygon points="70,60 170,60 120,100 30,90" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+              <text x="10" y="115" fill="rgba(255,255,255,0.6)" font-size="11">Triangular prism (3-D)</text>
+            </svg>
+
+            <!-- simple net -->
+            <svg width="260" height="120" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg" aria-label="Net of triangular prism">
+              <!-- triangle A -->
+              <polygon points="30,20 70,60 30,100" fill="rgba(61,214,200,0.05)" stroke="rgba(61,214,200,0.45)"/>
+              <!-- rectangle strip of three rectangles (side faces) -->
+              <rect x="70" y="20" width="40" height="80" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)"/>
+              <rect x="110" y="20" width="40" height="80" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)"/>
+              <rect x="150" y="20" width="40" height="80" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)"/>
+              <!-- triangle B (other end) -->
+              <polygon points="190,20 230,60 190,100" fill="rgba(123,224,184,0.05)" stroke="rgba(123,224,184,0.45)"/>
+              <text x="10" y="115" fill="rgba(255,255,255,0.6)" font-size="11">Net: triangle + rectangular side faces</text>
+            </svg>
+          </div>
+        </li>
+
+        <li>
+          <div class="q">4. The perimeter of the square feild is 120 m. find the length and the area of the square field. <span class="small">(1)</span></div>
+          <div class="ans">
+            Perimeter = 120 m. Side = 120 ÷ 4 = 30 m.<br>
+            Area = side² = 30² = 900 m².
+          </div>
+        </li>
+
+        <li>
+          <div class="q">5. Convert 10011₂ into denary numbers. <span class="small">(1)</span></div>
+          <div class="ans">
+            1·2⁴ + 0·2³ + 0·2² + 1·2¹ + 1·2⁰ = 16 + 0 + 0 + 2 + 1 = <strong>19</strong>.
+          </div>
+        </li>
+
+        <li>
+          <div class="q">6. Convert 1234 into binary numbers. <span class="small">(1)</span></div>
+          <div class="ans">
+            Decimal 1234 = binary <strong>10011010010₂</strong>.
+          </div>
+        </li>
+
+        <li>
+          <div class="q">7. Write 0.00023 into scientific notation. <span class="small">(1)</span></div>
+          <div class="ans">
+            0.00023 = 2.3 × 10⁻⁴.
+          </div>
+        </li>
+
+        <li>
+          <div class="q">8. Find the ration of 500 m and 2 km. <span class="small">(1)</span></div>
+          <div class="ans">
+            Convert 2 km = 2000 m. Ratio 500 : 2000 = 1 : 4.
+          </div>
+        </li>
+
+        <li>
+          <div class="q">9. Bread and biscuit are distributed in the ratio of 5:3 for tiffin in a school. If 45 biscuits were served, find the number of breads distributed. <span class="small">(1)</span></div>
+          <div class="ans">
+            Biscuits correspond to 3 parts. One part = 45 ÷ 3 = 15.<br>
+            Breads = 5 parts = 5 × 15 = <strong>75 breads</strong>.
+          </div>
+        </li>
+
+        <li>
+          <div class="q">10. Simplify and express in scientific notation. <br> 7.89 × 10⁴ − 6.43 × 10³ <span class="small">(1)</span></div>
+          <div class="ans">
+            7.89×10⁴ = 78,900. 6.43×10³ = 6,430.<br>
+            Difference = 78,900 − 6,430 = 72,470 = 7.247 × 10⁴.
+          </div>
+        </li>
+      </ol>
+
+      <footer>
+        Completed solutions · Time allowed for test: 45 minutes.
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
