@@ -1,274 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Questions Answers (Nepali-English Mix)</title>
-    <style>
-        body {
-            background-color: #121212;
-            color: #e0e0e0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-        h1, h2, h3 {
-            color: #bb86fc;
-            border-bottom: 2px solid #373737;
-            padding-bottom: 5px;
-            margin-top: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .question-block {
-            margin-bottom: 30px;
-            padding: 15px;
-            background-color: #2a2a2a;
-            border-left: 5px solid #03dac6;
-            border-radius: 5px;
-        }
-        .question-number {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #03dac6;
-        }
-        .sub-question {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        .solution {
-            background-color: #333333;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .solution-heading {
-            font-weight: bold;
-            color: #fcc286;
-        }
-        code {
-            background-color: #373737;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-        strong {
-            color: #ff9800;
-        }
-        hr {
-            border: 0;
-            height: 1px;
-            background: #444;
-            margin: 20px 0;
-        }
-        .nepali-text {
-            color: #c9c9c9;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Math Solutions (Nepali-English Mix)</title>
+  <style>
+    :root{
+      --bg:#121212; --panel:#1e1e1e; --card:#2a2a2a; --ink:#e0e0e0;
+      --head:#bb86fc; --accent:#03dac6; --muted:#c9c9c9; --note:#fcc286; --hl:#ff9800;
+      --line:#373737; --chip:#333333;
+    }
+    *{box-sizing:border-box}
+    body{
+      background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Noto Sans",Arial;
+      margin:0; line-height:1.6; padding:24px;
+    }
+    .container{
+      max-width:920px; margin:auto; background:var(--panel); padding:22px; border-radius:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,.45);
+    }
+    h1,h2,h3{color:var(--head); border-bottom:2px solid var(--line); padding-bottom:6px; margin-top:22px}
+    h1{text-align:center}
+    .question-block{margin:22px 0; padding:16px; background:var(--card); border-left:6px solid var(--accent); border-radius:10px}
+    .question-number{font-weight:700; color:var(--accent); letter-spacing:.3px}
+    .solution{background:var(--chip); padding:14px; border-radius:8px; margin-top:10px}
+    .solution-heading{font-weight:700; color:var(--note)}
+    .nep{color:var(--muted); font-style:italic}
+    code{background:#222; padding:2px 6px; border-radius:4px}
+    strong{color:var(--hl)}
+    hr{border:0; height:1px; background:#444; margin:24px 0}
+    .step{margin:.25rem 0}
+    .pill{display:inline-block; background:#202020; border:1px solid #2f2f2f; padding:2px 8px; border-radius:999px; font-size:.9rem; color:#bfbfbf}
+    .grid{display:grid; gap:10px}
+    @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+    .venn{display:grid; gap:8px; font-size:.95rem}
+    .callout{border:1px dashed #555; padding:10px; border-radius:8px; background:#262626}
+  </style>
 </head>
 <body>
-
 <div class="container">
-    <h1>गणितका प्रश्नहरुको हल (Math Questions Answers)</h1>
-    <hr>
+  <h1>गणित – सजिलो Solution (Nepali + English)</h1>
+  <p class="pill">Simple steps • Clear logic • Final answers highlighted</p>
 
-    <div class="question-block">
-        <div class="question-number">Question 1:</div>
-        <h3>Percentages and Venn-Diagrams</h3>
-        <p>In an examination, 85% of the students passed in mathematics, 87% in English and 81% in both. If 18 students failed in the examination, find the total number of students and the percentage of students passed in at least one subject. Also, represent the information in a Venn-diagram.</p>
+  <hr>
 
-        <div class="solution">
-            <div class="solution-heading">Solution:</div>
-            <p><span class="nepali-text">हामीलाई दिइएको छ:</span></p>
-            <p>Let M be the set of students who passed in Mathematics. <span class="nepali-text">(&#2344;&#2350;&#2366;&#2342;&#2367;&#2360;&#2360;&#2381;&#2344;&#2347;&#2367;&#2352;)</span></p>
-            <p>Let E be the set of students who passed in English.</p>
-            <ul>
-                <li>Percentage passed in Mathematics, P(M) = 85%</li>
-                <li>Percentage passed in English, P(E) = 87%</li>
-                <li>Percentage passed in both subjects, P(M &cap; E) = 81%</li>
-            </ul>
+  <!-- Q1 -->
+  <div class="question-block">
+    <div class="question-number">Question 1</div>
+    <h3>Percentages & Venn Diagram</h3>
+    <p class="nep">Math पास 85%, English पास 87%, दुवैमा पास 81%. 18 जना फेल।</p>
 
-            <h4 class="sub-question">i. What percent of the students passed in at least one subject? <span class="nepali-text">(कम्तीमा एउटा विषयमा पास हुने विद्यार्थीको प्रतिशत कति हो?)</span></h4>
-            <p><code>P(M &cup; E) = P(M) + P(E) - P(M &cap; E)</code></p>
-            <p><code>P(M &cup; E) = 85% + 87% - 81% = 91%</code></p>
-            <p><strong>Answer: 91% of the students passed in at least one subject.</strong></p>
+    <div class="solution">
+      <div class="solution-heading">Simple Solution</div>
 
-            <h4 class="sub-question">ii. If 18 students failed in the examination, find the total number of students. <span class="nepali-text">(यदि १८ जना विद्यार्थी फेल भए, जम्मा विद्यार्थी संख्या कति होला?)</span></h4>
-            <p><span class="nepali-text">फेल हुने विद्यार्थीको प्रतिशत</span> = 100% - P(M &cup; E) = 100% - 91% = 9%</p>
-            <p><span class="nepali-text">प्रश्न अनुसार, ९% विद्यार्थी भनेको १८ जना हो।</span></p>
-            <p><code>9% of Total Students (T) = 18</code></p>
-            <p><code>0.09 * T = 18</code></p>
-            <p><code>T = 18 / 0.09 = 200</code></p>
-            <p><strong>Answer: The total number of students is 200.</strong></p>
-            
-            <h4 class="sub-question">iii. Represent the above information in a Venn-diagram. <span class="nepali-text">(माथिको जानकारीलाई भेन-डाइग्राममा देखाउनुहोस्।)</span></h4>
-            <p><span class="nepali-text">भेन्डाइग्रामको लागि, हामीले मात्र एउटा विषयमा पास हुने र फेल हुने विद्यार्थीको प्रतिशत पत्ता लगाउनुपर्छ।</span></p>
-            <ul>
-                <li>Only Mathematics: <code>85% - 81% = 4%</code></li>
-                <li>Only English: <code>87% - 81% = 6%</code></li>
-                <li>Both: <code>81%</code></li>
-                <li>Failed: <code>9%</code></li>
-            </ul>
-            <p><span class="nepali-text">यसलाई भेन-डाइग्राममा देखाउँदा, दुईवटा गोलाहरू (M र E) एकआपसमा काटिएका हुन्छन्। बीचको भागमा ८१%, M को मात्र भागमा ४% र E को मात्र भागमा ६% हुन्छ। दुबै गोला बाहिरको भागमा ९% हुन्छ।</span></p>
-        </div>
+      <p class="step"><strong>i) At least one subject (कम्तीमा एक):</strong></p>
+      <p class="step"><code>P(M ∪ E) = P(M) + P(E) − P(M ∩ E)</code></p>
+      <p class="step"><code>= 85% + 87% − 81% = 91%</code></p>
+      <p><strong>Answer: 91% students passed in at least one subject.</strong></p>
+
+      <p class="step"><strong>ii) Total students (फेल आधारित):</strong></p>
+      <p class="step">Fail % = <code>100% − 91% = 9%</code></p>
+      <p class="step">9% ≡ 18 students ⇒ <code>0.09 × T = 18</code> ⇒ <code>T = 18/0.09 = 200</code></p>
+      <p><strong>Answer: Total students = 200.</strong></p>
+
+      <p class="step"><strong>iii) Venn parts (diagram लागि प्रतिशत):</strong></p>
+      <div class="venn">
+        <div>Only Math = <code>85 − 81 = 4%</code></div>
+        <div>Only English = <code>87 − 81 = 6%</code></div>
+        <div>Both = <code>81%</code></div>
+        <div>Outside (Fail) = <code>9%</code></div>
+      </div>
+      <div class="callout nepfriendly">
+        <span class="nep">Diagram बनाउँदा:</span> M र E दुई circle overlap हुन्छ। बीच (overlap) मा <strong>81%</strong>, M-only मा <strong>4%</strong>, E-only मा <strong>6%</strong>, circle बाहिर <strong>9%</strong>.
+      </div>
     </div>
-    
-    <hr>
+  </div>
 
-    <div class="question-block">
-        <div class="question-number">Question 2:</div>
-        <h3>Income Tax Calculation <span class="nepali-text">(आयकरको गणना)</span></h3>
-        <p>Mr. Shrestha married sales manager in a motorbike company having a monthly salary Rs 75000, a dearness allowance of Rs 2500 and Rs 40000 as a festival allowance. But he pays Rs 48000 as a premium of life insurance. It is given that 1% of social security tax is levied on the income up to Rs 6,00,000, 10% and 20% income tax on the incomes exceeding Rs 6,00,000 to Rs 8,00,000 and on the income exceeding 8,00,000 to Rs 11,00,000.</p>
+  <hr>
 
-        <div class="solution">
-            <div class="solution-heading">Solution:</div>
-            
-            <h4 class="sub-question">i. Find his annual income. <span class="nepali-text">(उहाँको वार्षिक आम्दानी कति हो?)</span></h4>
-            <p><span class="nepali-text">मासिक तलब</span> = Rs 75,000</p>
-            <p><span class="nepali-text">मासिक भत्ता</span> = Rs 2,500</p>
-            <p><span class="nepali-text">वार्षिक आम्दानी</span> = (Monthly Salary + Dearness Allowance) * 12 + Festival Allowance</p>
-            <p>Annual Income = (Rs 75,000 + Rs 2,500) * 12 + Rs 40,000</p>
-            <p>Annual Income = Rs 77,500 * 12 + Rs 40,000 = Rs 9,30,000 + Rs 40,000 = Rs 9,70,000</p>
-            <p><strong>Answer: Mr. Shrestha's annual income is Rs 9,70,000.</strong></p>
+  <!-- Q2 -->
+  <div class="question-block">
+    <div class="question-number">Question 2</div>
+    <h3>Income Tax (आयकर) – Slab अनुसार</h3>
+    <p class="nep">Monthly salary Rs 75,000, DA Rs 2,500, Festival Rs 40,000, Life Insurance Rs 48,000.</p>
+    <p class="nep">Tax rule given: first 6,00,000 मा 1% Social Security Tax; 6–8 लाख भागमा 10%; 8–11 लाख भागमा 20%.</p>
 
-            <h4 class="sub-question">ii. What is the taxable income? <span class="nepali-text">(कर लाग्ने आम्दानी कति हो?)</span></h4>
-            <p><span class="nepali-text">कर लाग्ने आम्दानी</span> = Annual Income - Life Insurance Premium</p>
-            <p>Taxable Income = Rs 9,70,000 - Rs 48,000 = Rs 9,22,000</p>
-            <p><strong>Answer: The taxable income is Rs 9,22,000.</strong></p>
+    <div class="solution">
+      <div class="solution-heading">Simple Solution</div>
 
-            <h4 class="sub-question">iii. Calculate the income tax paid by Mr. Shrestha. <span class="nepali-text">(उहाँले तिर्नुपर्ने आयकर गणना गर्नुहोस्।)</span></h4>
-            <p><span class="nepali-text">कर लाग्ने आम्दानी Rs 9,22,000 छ। अब हामी दिइएको स्ल्याब अनुसार कर गणना गर्छौं:</span></p>
-            <ul>
-                <li><strong>Rs 6,00,000 सम्ममा:</strong> 1% सामाजिक सुरक्षा कर <br><span class="nepali-text">कर</span> = 1% of Rs 6,00,000 = Rs 6,000</li>
-                <li><strong>Rs 6,00,001 देखि Rs 8,00,000 सम्ममा:</strong> 10% आयकर <br><span class="nepali-text">यस स्ल्याबमा पर्ने रकम</span> = Rs 8,00,000 - Rs 6,00,000 = Rs 2,00,000 <br><span class="nepali-text">कर</span> = 10% of Rs 2,00,000 = Rs 20,000</li>
-                <li><strong>Rs 8,00,001 देखि Rs 11,00,000 सम्ममा:</strong> 20% आयकर <br><span class="nepali-text">यस स्ल्याबमा पर्ने रकम</span> = Rs 9,22,000 - Rs 8,00,000 = Rs 1,22,000 <br><span class="nepali-text">कर</span> = 20% of Rs 1,22,000 = Rs 24,400</li>
-            </ul>
-            <p><span class="nepali-text">जम्मा आयकर</span> = Rs 6,000 + Rs 20,000 + Rs 24,400 = Rs 50,400</p>
-            <p><strong>Answer: The total income tax paid by Mr. Shrestha is Rs 50,400.</strong></p>
+      <p class="step"><strong>i) Annual income (वार्षिक):</strong></p>
+      <p class="step">Monthly total = <code>75,000 + 2,500 = 77,500</code></p>
+      <p class="step">Yearly (12 months) = <code>77,500 × 12 = 9,30,000</code></p>
+      <p class="step">Add festival = <code>9,30,000 + 40,000 = 9,70,000</code></p>
+      <p><strong>Answer: Annual income = Rs 9,70,000.</strong></p>
+
+      <p class="step"><strong>ii) Taxable income (कर लाग्ने):</strong></p>
+      <p class="step"><code>9,70,000 − 48,000 = 9,22,000</code></p>
+      <p><strong>Answer: Taxable = Rs 9,22,000.</strong></p>
+
+      <p class="step"><strong>iii) Tax calculation (सजिलै):</strong></p>
+      <div class="grid">
+        <div class="step">
+          <div><b>0–6,00,000</b>: 1% SST</div>
+          <div>Tax = <code>1% × 6,00,000 = 6,000</code></div>
         </div>
-    </div>
-    
-    <hr>
-
-    <div class="question-block">
-        <div class="question-number">Question 3:</div>
-        <h3>VAT and Discount Calculation <span class="nepali-text">(भ्याट र छुटको गणना)</span></h3>
-        <p>A tourist paid Rs 14125 for a carved wooden window with a discount of 20% and 13% VAT.</p>
-
-        <div class="solution">
-            <div class="solution-heading">Solution:</div>
-            <p><span class="nepali-text">हामीलाई थाहा छ:</span></p>
-            <ul>
-                <li><span class="nepali-text">भ्याटसहितको मूल्य</span> (Selling Price with VAT) = Rs 14,125</li>
-                <li><span class="nepali-text">छुट दर</span> (Discount Rate) = 20%</li>
-                <li><span class="nepali-text">भ्याट दर</span> (VAT Rate) = 13%</li>
-            </ul>
-            <p><span class="nepali-text">पहिले भ्याट अघिको Selling Price निकालौं:</span></p>
-            <p><code>SP with VAT = SP * (1 + VAT Rate)</code></p>
-            <p><code>14125 = SP * (1 + 0.13)</code></p>
-            <p><code>14125 = SP * 1.13</code></p>
-            <p><code>SP = 14125 / 1.13 = 12500</code></p>
-            <p><span class="nepali-text">छुट पछिको मूल्य</span> (Selling Price) Rs 12,500 हो।</p>
-
-            <h4 class="sub-question">i. Find the marked price of the window. <span class="nepali-text">(झ्यालको अंकित मूल्य पत्ता लगाउनुहोस्।)</span></h4>
-            <p><span class="nepali-text">अंकित मूल्य (Marked Price, MP) बाट छुट दिएपछि Selling Price आउँछ।</span></p>
-            <p><code>SP = MP * (1 - Discount Rate)</code></p>
-            <p><code>12500 = MP * (1 - 0.20)</code></p>
-            <p><code>12500 = MP * 0.80</code></p>
-            <p><code>MP = 12500 / 0.80 = 15625</code></p>
-            <p><strong>Answer: The marked price of the window is Rs 15,625.</strong></p>
-
-            <h4 class="sub-question">ii. Obtain the discount offered. <span class="nepali-text">(दिइएको छुट रकम पत्ता लगाउनुहोस्।)</span></h4>
-            <p><span class="nepali-text">छुट रकम</span> = Marked Price - Selling Price</p>
-            <p>Discount Amount = Rs 15,625 - Rs 12,500 = Rs 3,125</p>
-            <p><strong>Answer: The discount offered is Rs 3,125.</strong></p>
-
-            <h4 class="sub-question">iii. What is the amount of VAT? <span class="nepali-text">(भ्याट रकम कति हो?)</span></h4>
-            <p><span class="nepali-text">भ्याट रकम</span> = Selling Price with VAT - Selling Price without VAT</p>
-            <p>VAT Amount = Rs 14,125 - Rs 12,500 = Rs 1,625</p>
-            <p><strong>Answer: The amount of VAT is Rs 1,625.</strong></p>
+        <div class="step">
+          <div><b>6,00,001–8,00,000</b>: 10%</div>
+          <div>Tax = <code>10% × 2,00,000 = 20,000</code></div>
         </div>
-    </div>
-    
-    <hr>
-
-    <div class="question-block">
-        <div class="question-number">Question 4:</div>
-        <h3>Commission Calculation <span class="nepali-text">(कमीशनको गणना)</span></h3>
-        <p>Mrs. Nanu is an employee in a readymade shop with monthly salary of Rs 15800. She is also given a commission of 1.2% on the monthly sales. If the monthly sales amount to Rs 10,80,000.</p>
-
-        <div class="solution">
-            <div class="solution-heading">Solution:</div>
-            
-            <h4 class="sub-question">i. What commission amount did she receive? <span class="nepali-text">(उहाँले कति कमीशन पाउनुभयो?)</span></h4>
-            <p><span class="nepali-text">कमीशन रकम</span> = Commission Rate * Monthly Sales</p>
-            <p>Commission Amount = 1.2% of Rs 10,80,000</p>
-            <p>Commission Amount = (1.2 / 100) * 10,80,000 = Rs 12,960</p>
-            <p><strong>Answer: Mrs. Nanu received a commission of Rs 12,960.</strong></p>
-
-            <h4 class="sub-question">ii. How much will be her monthly income? <span class="nepali-text">(उहाँको मासिक आम्दानी कति हुन्छ?)</span></h4>
-            <p><span class="nepali-text">कुल मासिक आम्दानी</span> = Monthly Salary + Commission Amount</p>
-            <p>Total Monthly Income = Rs 15,800 + Rs 12,960 = Rs 28,760</p>
-            <p><strong>Answer: Her total monthly income will be Rs 28,760.</strong></p>
-
-            <h4 class="sub-question">iii. How much should be the monthly sales so that she can receive Rs 32,000 as the total monthly income? <span class="nepali-text">(कुल मासिक आम्दानी ३२,००० पाउनको लागि मासिक बिक्री कति हुनुपर्छ?)</span></h4>
-            <p><span class="nepali-text">चाहिएको आम्दानी</span> = Rs 32,000</p>
-            <p><span class="nepali-text">चाहिएको कमीशन रकम</span> = Rs 32,000 - Rs 15,800 = Rs 16,200</p>
-            <p>Let S be the required monthly sales. <span class="nepali-text">(मासिक बिक्री S मानौं।)</span></p>
-            <p><code>Commission Amount = 1.2% of S</code></p>
-            <p><code>16200 = 0.012 * S</code></p>
-            <p><code>S = 16200 / 0.012 = 13,50,000</code></p>
-            <p><strong>Answer: The monthly sales should be Rs 13,50,000 to achieve a total monthly income of Rs 32,000.</strong></p>
+        <div class="step">
+          <div><b>8,00,001–9,22,000</b>: 20%</div>
+          <div>Part = <code>9,22,000 − 8,00,000 = 1,22,000</code></div>
+          <div>Tax = <code>20% × 1,22,000 = 24,400</code></div>
         </div>
+      </div>
+      <p class="step">Total tax = <code>6,000 + 20,000 + 24,400 = 50,400</code></p>
+      <p><strong>Answer: Total tax = Rs 50,400.</strong></p>
     </div>
+  </div>
 
-    <hr>
+  <hr>
 
-    <div class="question-block">
-        <div class="question-number">Question 5:</div>
-        <h3>Profit and Bonus Calculation <span class="nepali-text">(नाफा र बोनसको गणना)</span></h3>
-        <p>A bakery factory distributed 10% of its profit among its employees in a year. If each employee received Rs 4180 as the bonus, how much was the profit of the factory? Also find the amount of profit of the factory when each employee may receives Rs 5120 as the bonus as the same bonus rate 10%.</p>
-        
-        <div class="solution">
-            <div class="solution-heading">Solution:</div>
-            
-            <p>Let P be the total profit of the factory. <span class="nepali-text">(जम्मा नाफा P मानौं।)</span></p>
-            <p>Let N be the number of employees. <span class="nepali-text">(जम्मा कर्मचारी N मानौं।)</span></p>
-            <p><span class="nepali-text">हामीलाई थाहा छ:</span></p>
-            <ul>
-                <li><span class="nepali-text">जम्मा बोनस रकम</span> = 10% of Profit = 0.10 * P</li>
-                <li><span class="nepali-text">जम्मा बोनस रकम</span> = Bonus per employee * Number of employees = 4180 * N</li>
-            </ul>
-            <p><span class="nepali-text">त्यसैले:</span> <code>0.10 * P = 4180 * N</code></p>
-            <p><code>P = (4180 * N) / 0.10 = 41800 * N</code></p>
-            <p><span class="nepali-text">प्रश्नमा कर्मचारीको संख्या (N) दिइएको छैन। त्यसैले, नाफालाई कर्मचारीको संख्याको आधारमा निकाल्नुपर्छ।</span></p>
-            
-            <h4 class="sub-question">Part 1: How much was the profit of the factory? <span class="nepali-text">(कारखानाको नाफा कति थियो?)</span></h4>
-            <p><span class="nepali-text">नाफा</span> = Rs 41,800 * N</p>
-            <p><strong>Answer: The profit of the factory is Rs 41,800 multiplied by the number of employees (N).</strong></p>
-            
-            <h4 class="sub-question">Part 2: Find the amount of profit...when each employee may receives Rs 5120 as the bonus. <span class="nepali-text">(प्रत्येक कर्मचारीले ५१२० बोनस पाउँदा कारखानाको नाफा कति हुन्छ?)</span></h4>
-            <p><span class="nepali-text">यस केसमा, नयाँ बोनस प्रति कर्मचारी</span> = Rs 5,120</p>
-            <p>Let P' be the new profit. <span class="nepali-text">(नयाँ नाफा P' मानौं।)</span></p>
-            <p><span class="nepali-text">जम्मा बोनस</span> = 10% of P' = N * 5120</p>
-            <p><code>0.10 * P' = 5120 * N</code></p>
-            <p><code>P' = (5120 * N) / 0.10 = 51200 * N</code></p>
-            <p><strong>Answer: The new profit of the factory is Rs 51,200 multiplied by the number of employees (N).</strong></p>
-            
-            <p><span class="nepali-text">Note: कर्मचारीको संख्या (N) नदिएको हुनाले, नाफाको ठोस मूल्य निकाल्न सकिँदैन। नाफा कर्मचारीको संख्यामा निर्भर गर्छ।</span></p>
-        </div>
+  <!-- Q3 -->
+  <div class="question-block">
+    <div class="question-number">Question 3</div>
+    <h3>VAT & Discount (भ्याट र छुट)</h3>
+    <p class="nep">Paid amount (VAT सहित) = Rs 14,125, Discount = 20%, VAT = 13%.</p>
+
+    <div class="solution">
+      <div class="solution-heading">Simple Solution</div>
+
+      <p class="step"><b>पहिले VAT हटाउँ</b> (get SP without VAT):</p>
+      <p class="step"><code>SP_with_VAT = SP × 1.13</code> ⇒ <code>14,125 = SP × 1.13</code> ⇒ <code>SP = 14,125 / 1.13 = 12,500</code></p>
+
+      <p class="step"><strong>i) Marked Price (MP):</strong></p>
+      <p class="step"><code>SP = MP × (1 − 0.20) = MP × 0.80</code></p>
+      <p class="step"><code>12,500 = MP × 0.80 ⇒ MP = 12,500 / 0.80 = 15,625</code></p>
+      <p><strong>Answer: MP = Rs 15,625.</strong></p>
+
+      <p class="step"><strong>ii) Discount amount:</strong></p>
+      <p class="step"><code>= MP − SP = 15,625 − 12,500 = 3,125</code></p>
+      <p><strong>Answer: Discount = Rs 3,125.</strong></p>
+
+      <p class="step"><strong>iii) VAT amount:</strong></p>
+      <p class="step"><code>= Paid − SP = 14,125 − 12,500 = 1,625</code></p>
+      <p><strong>Answer: VAT = Rs 1,625.</strong></p>
     </div>
+  </div>
+
+  <hr>
+
+  <!-- Q4 -->
+  <div class="question-block">
+    <div class="question-number">Question 4</div>
+    <h3>Commission (कमीशन)</h3>
+    <p class="nep">Salary = Rs 15,800 per month, Commission rate = 1.2%, Sales = Rs 10,80,000.</p>
+
+    <div class="solution">
+      <div class="solution-heading">Simple Solution</div>
+
+      <p class="step"><strong>i) Commission amount:</strong></p>
+      <p class="step"><code>1.2% × 10,80,000 = (1.2/100) × 10,80,000 = 12,960</code></p>
+      <p><strong>Answer: Commission = Rs 12,960.</strong></p>
+
+      <p class="step"><strong>ii) Monthly income (Salary + Commission):</strong></p>
+      <p class="step"><code>15,800 + 12,960 = 28,760</code></p>
+      <p><strong>Answer: Total monthly income = Rs 28,760.</strong></p>
+
+      <p class="step"><strong>iii) Required sales for income Rs 32,000:</strong></p>
+      <p class="step">Needed commission = <code>32,000 − 15,800 = 16,200</code></p>
+      <p class="step">Let sales = S. <code>1.2% of S = 0.012S = 16,200</code> ⇒ <code>S = 16,200 / 0.012 = 13,50,000</code></p>
+      <p><strong>Answer: Sales needed = Rs 13,50,000.</strong></p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Q5 -->
+  <div class="question-block">
+    <div class="question-number">Question 5</div>
+    <h3>Profit & Bonus (नाफा र बोनस)</h3>
+    <p class="nep">Factory ले profit को 10% bonus रूपमा सबै कर्मचारीलाई बाँड्छ। प्रति कर्मचारी bonus पहिले Rs 4180, पछि Rs 5120।</p>
+
+    <div class="solution">
+      <div class="solution-heading">Simple Solution</div>
+
+      <p class="step">मानौं total employees = <code>N</code>, profit = <code>P</code>.</p>
+      <p class="step">Total bonus = <code>10% of P = 0.10P</code> र उही कुरा = <code>Bonus per person × N</code>.</p>
+
+      <p class="step"><strong>Part 1 (Rs 4180 प्रति कर्मचारी):</strong></p>
+      <p class="step"><code>0.10P = 4180 × N ⇒ P = (4180 × N) / 0.10 = 41,800 × N</code></p>
+      <p><strong>Answer: Profit = Rs 41,800 × N.</strong> <span class="nep">(N नदिएकाले exact रकम निकालिँदैन)</span></p>
+
+      <p class="step"><strong>Part 2 (Rs 5120 प्रति कर्मचारी):</strong></p>
+      <p class="step"><code>0.10P' = 5120 × N ⇒ P' = (5120 × N) / 0.10 = 51,200 × N</code></p>
+      <p><strong>Answer: New profit = Rs 51,200 × N.</strong></p>
+
+      <div class="callout">
+        <span class="nep">Note:</span> कर्मचारी संख्या N उस्तै रह्यो भन्ने मान्यता हो। N दिएको भए numerical profit पनि तुरुन्त निस्कन्थ्यो।
+      </div>
+    </div>
+  </div>
 
 </div>
-
 </body>
 </html>
