@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Education Presentation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .presentation-container {
+            width: 90%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .slide {
+            display: none;
+            padding: 40px;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        .slide h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        
+        .slide h2 {
+            color: #34495e;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+        }
+        
+        .slide h3 {
+            color: #7f8c8d;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .slide ul {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .slide li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .key-point {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .warning-box {
+            background: #ffeaa7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #fdcb6e;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            border-radius: 30px;
+        }
+        
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+        }
+        
+        .nav-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #34495e;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .scenario-box {
+            background: #dff9fb;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #0abde3;
+        }
+        
+        .discussion-points {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .icon {
+            font-size: 4em;
+            margin: 20px;
+        }
+        
+        .visual-aid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .visual-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 10px;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .emoji-large {
+            font-size: 3em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .diagram {
+            background: #ecf0f1;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px dashed #3498db;
+        }
+        
+        .step-visual {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="slide-counter">1/8</div>
+            <h1>Health Education & Safety</h1>
+            <div class="image-container">
+                <div class="visual-aid">
+                    <div class="visual-item">
+                        <span class="emoji-large">🏥</span>
+                        <h3>Health Education</h3>
+                    </div>
+                    <div class="visual-item">
+                        <span class="emoji-large">🛡️</span>
+                        <h3>Safety Awareness</h3>
+                    </div>
+                    <div class="visual-item">
+                        <span class="emoji-large">🤝</span>
+                        <h3>Support System</h3>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <h2 style="border: none; color: #3498db;">Important Topics for Student Awareness</h2>
+                <ul style="font-size: 1.5em; list-style: none; padding: 0; margin-top: 40px;">
+                    <li>🩸 Menstrual Health & Hygiene</li>
+                    <li>🛡️ Sexual Abuse Prevention</li>
+                    <li>📚 Safe Sexual Behavior Education</li>
+                    <li>🧠 Understanding Physical & Mental Health</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 2: Menstrual Health -->
+        <div class="slide">
+            <div class="slide-counter">2/8</div>
+            <h1>Menstrual Health & Hygiene</h1>
+            
+            <div class="image-container">
+                <div class="visual-aid">
+                    <div class="visual-item">
+                        <span class="emoji-large">🌸</span>
+                        <h4>Natural Process</h4>
+                        <p>Normal body function</p>
+                    </div>
+                    <div class="visual-item">
+                        <span class="emoji-large">🤗</span>
+                        <h4>Support Needed</h4>
+                        <p>Love and understanding</p>
+                    </div>
+                    <div class="visual-item">
+                        <span class="emoji-large">🧼</span>
+                        <h4>Clean Hygiene</h4>
+                        <p>Regular pad changes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <h3>Key Message: Menstruation is natural and normal</h3>
+            </div>
+            <ul>
+                <li><strong>Support System:</strong> Girls need love and care, not isolation</li>
+                <li><strong>Health Concerns:</strong> May feel weak, risk of anemia</li>
+                <li><strong>Nutrition:</strong> Provide healthy foods and moral support</li>
+                <li><strong>Hygiene Priority:</strong> Clean pads/clothes changed regularly</li>
+                <li><strong>No Restrictions:</strong> Can participate in daily activities safely</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Important:</strong> Avoid discrimination. Many restrictions are cultural myths, not medical necessities.
+            </div>
+        </div>
+
+        <!-- Slide 3: Sexual Abuse Awareness -->
+        <div class="slide">
+            <div class="slide-counter">3/8</div>
+            <h1>Sexual Abuse Prevention</h1>
+            <div class="scenario-box">
+                <h3>Real-Life Example: Anita's Story</h3>
+                <p>A gymnastics student experienced inappropriate touching from a substitute teacher. She felt uncomfortable but initially didn't know how to react.</p>
+            </div>
+            <div class="key-point">
+                <h3>What Students Should Know:</h3>
+                <ul>
+                    <li>Trust your instincts - if something feels wrong, it probably is</li>
+                    <li>Speak up immediately to trusted adults</li>
+                    <li>It's never your fault</li>
+                    <li>Help is available</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: Reporting & Action -->
+        <div class="slide">
+            <div class="slide-counter">4/8</div>
+            <h1>How to Report & Get Help</h1>
+            
+            <div class="diagram">
+                <h3 style="text-align: center; margin-bottom: 30px;">🚨 Reporting Process</h3>
+                <div class="step-visual">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>🏫 At School:</strong> Tell principal or trusted teacher immediately
+                    </div>
+                </div>
+                <div class="step-visual">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>🏠 Outside School:</strong> Tell parents or family members first
+                    </div>
+                </div>
+                <div class="step-visual">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>⛪ Religious Settings:</strong> Report to parents if religious leaders act inappropriately
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-point">
+                <strong>Remember:</strong> Sexual abuse can happen to both boys and girls. Always report it ASAP (As Soon As Possible).
+            </div>
+            <div class="discussion-points">
+                <h3>Discussion Questions:</h3>
+                <ul>
+                    <li>Why is it important to speak up?</li>
+                    <li>Who are the trusted adults in your life?</li>
+                    <li>What should you do if someone asks you to keep inappropriate contact secret?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 5: Puberty & Physical Changes -->
+        <div class="slide">
+            <div class="slide-counter">5/8</div>
+            <h1>Understanding Puberty</h1>
+            <h2>Normal Physical Changes During Adolescence:</h2>
+            <div style="display: flex; gap: 40px;">
+                <div style="flex: 1;">
+                    <h3>For Girls:</h3>
+                    <ul>
+                        <li>Breast development</li>
+                        <li>Menstrual periods begin</li>
+                        <li>Hip widening</li>
+                        <li>Body hair growth</li>
+                    </ul>
+                </div>
+                <div style="flex: 1;">
+                    <h3>For Boys:</h3>
+                    <ul>
+                        <li>Voice changes</li>
+                        <li>Muscle development</li>
+                        <li>Facial and body hair</li>
+                        <li>Growth spurts</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="key-point">
+                <strong>Important:</strong> These changes are completely normal. Students need proper guidance and support during this time.
+            </div>
+        </div>
+
+        <!-- Slide 6: Safe Behaviors & Education -->
+        <div class="slide">
+            <div class="slide-counter">6/8</div>
+            <h1>Importance of Proper Education</h1>
+            
+            <div class="image-container">
+                <h3>🧠 Healthy vs Unhealthy Information Sources</h3>
+                <div class="visual-aid">
+                    <div class="visual-item" style="background: #d5f4e6; border: 2px solid #27ae60;">
+                        <span class="emoji-large">✅</span>
+                        <h4>Good Sources</h4>
+                        <p>👨‍🏫 Teachers<br>👨‍⚕️ Healthcare providers<br>📚 Educational materials</p>
+                    </div>
+                    <div class="visual-item" style="background: #ffe6e6; border: 2px solid #e74c3c;">
+                        <span class="emoji-large">❌</span>
+                        <h4>Risky Sources</h4>
+                        <p>🌐 Random websites<br>📱 Social media<br>🤐 Unreliable peers</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Why Students Need Guidance:</h2>
+            <ul>
+                <li><strong>Natural Curiosity:</strong> Adolescents naturally have questions about their changing bodies</li>
+                <li><strong>Reliable Information:</strong> School and family should provide accurate information</li>
+                <li><strong>Internet Risks:</strong> Unreliable online sources can be harmful and misleading</li>
+                <li><strong>Healthy Activities:</strong> Encourage sports, arts, social activities</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Key Point:</strong> Keep students engaged in positive activities like camping, sports, music, and dance events to channel their energy constructively.
+            </div>
+        </div>
+
+        <!-- Slide 7: Mental Health Awareness -->
+        <div class="slide">
+            <div class="slide-counter">7/8</div>
+            <h1>Mental Health & Well-being</h1>
+            <h2>Supporting Student Mental Health:</h2>
+            <ul>
+                <li><strong>Open Communication:</strong> Create safe spaces for students to ask questions</li>
+                <li><strong>Counseling Support:</strong> Professional guidance when needed</li>
+                <li><strong>Mutual Respect:</strong> Teach students about consent and boundaries</li>
+                <li><strong>Healthy Relationships:</strong> Education about respect in all relationships</li>
+            </ul>
+            <div class="key-point">
+                <h3>Self-Control & Understanding:</h3>
+                <p>Teaching students about patience, respect for others' feelings, and healthy ways to express emotions is crucial for their development.</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Summary -->
+        <div class="slide">
+            <div class="slide-counter">8/8</div>
+            <h1>Summary & Action Points</h1>
+            <div class="key-point">
+                <h2>Key Takeaways:</h2>
+                <ul>
+                    <li>✅ Provide accurate, age-appropriate health education</li>
+                    <li>✅ Create supportive environments for all students</li>
+                    <li>✅ Teach students to recognize and report inappropriate behavior</li>
+                    <li>✅ Promote healthy activities and positive outlets</li>
+                    <li>✅ Maintain open communication with students and parents</li>
+                </ul>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <h2 style="color: #e74c3c;">Questions & Discussion</h2>
+                <p style="font-size: 1.3em;">Remember: A well-informed student is a safer, healthier student.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(n) {
+            if (currentSlide + n >= 0 && currentSlide + n < totalSlides) {
+                showSlide(currentSlide + n);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') changeSlide(-1);
+            if (event.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
