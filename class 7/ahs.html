@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adolescent Sexual Health Education</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .slide {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: none;
+            animation: slideIn 0.6s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide h1 {
+            color: #4a5568;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slide h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .slide h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin: 20px 0 10px 0;
+        }
+
+        .slide p {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #e17055;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        .key-points {
+            background: linear-gradient(135deg, #d1f2eb, #a8e6cf);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .key-points li {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .key-points li::before {
+            content: "✓";
+            position: absolute;
+            left: 15px;
+            color: #00b894;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffcccc, #ff9999);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .brain-comparison {
+            background: linear-gradient(135deg, #e8f4fd, #c3e8ff);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #e8f4fd, #c3e8ff);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #74b9ff;
+        }
+
+        .gender-info {
+            background: linear-gradient(135deg, #fdcb6e, #e17055);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .contraceptive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .contraceptive-item {
+            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .slide {
+                padding: 20px;
+            }
+            
+            .slide h1 {
+                font-size: 2em;
+            }
+            
+            .slide h2 {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                bottom: 20px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">6</span>
+    </div>
+
+    <div class="container">
+        <!-- Slide 1: Introduction -->
+        <div class="slide active">
+            <h1>🧠 Adolescent Sexual Health Education</h1>
+            <div class="highlight-box">
+                <h3>Understanding Your Development</h3>
+                <p>Adolescence is a time of physical, emotional, and mental changes. This education helps you understand these changes and make healthy decisions.</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="icon">🎯</span>
+                    <h3>Health & Well-being</h3>
+                    <p>Protecting your physical and mental health</p>
+                </div>
+                <div class="info-card">
+                    <span class="icon">📚</span>
+                    <h3>Proper Information</h3>
+                    <p>Learning from reliable sources</p>
+                </div>
+                <div class="info-card">
+                    <span class="icon">🤝</span>
+                    <h3>Healthy Relationships</h3>
+                    <p>Building respect and understanding</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Involvement in Interactive Activities -->
+        <div class="slide">
+            <h2>🏃‍♀️ Involvement in Interactive Activities</h2>
+            
+            <p>Sexual desires naturally come into adolescents' minds because they have a lot of free time. The solution is to keep them occupied with engaging activities.</p>
+            
+            <div class="key-points">
+                <h3>Recommended Activities:</h3>
+                <ul>
+                    <li><strong>Hiking & Camping:</strong> Outdoor adventures that build character</li>
+                    <li><strong>Sporting Events:</strong> Team activities that teach cooperation</li>
+                    <li><strong>Musical & Dance Events:</strong> Creative expression and skill development</li>
+                    <li><strong>Social Group Activities:</strong> Learning about responsibilities within groups</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>💡 Why Interactive Activities Work</h3>
+                <p>These activities should be social so that adolescents can learn about their responsibilities within their group and develop healthy relationships with peers.</p>
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ Important Note</h3>
+                <p>The goal is not to gather adolescents in a hall and lecture them, but to provide engaging, enjoyable activities that naturally keep them occupied and learning.</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Counselling for Safe Sex Behavior -->
+        <div class="slide">
+            <h2>🧠 Counselling for Safe Sex Behavior</h2>
+            
+            <p>Adolescents often turn to the internet to understand their changing bodies and desires. However, this can lead to unhealthy habits that affect their mental development.</p>
+            
+            <div class="brain-comparison">
+                <h3>Understanding Brain Development</h3>
+                <p>Your brain is still developing during adolescence. Certain behaviors can have long-term effects on your ability to concentrate and form healthy relationships.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h3>⚠️ Mental Health Impact</h3>
+                <p>While there may be no immediate physical problems, the mental aspects can be tremendous. Unhealthy habits can affect concentration, studying ability, and future relationship capacity.</p>
+            </div>
+            
+            <div class="key-points">
+                <h3>Why Counselling is Important:</h3>
+                <ul>
+                    <li>Helps you understand the long-term effects of your choices</li>
+                    <li>Provides proper guidance during this developmental stage</li>
+                    <li>Supports healthy brain development and concentration</li>
+                    <li>Prepares you for healthy future relationships</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: Sexuality Education -->
+        <div class="slide">
+            <h2>📖 Sexuality Education</h2>
+            
+            <p>Most adolescents have little to no understanding of the changes they undergo during adolescence. Without proper sex education in schools, many turn to the internet for information.</p>
+            
+            <div class="warning-box">
+                <h3>🚨 The Problem with Internet Information</h3>
+                <p>The internet is not a reliable source. There are many people telling youth different things, making it confusing. Bad advice can lead to bad consequences.</p>
+            </div>
+            
+            <div class="key-points">
+                <h3>What Proper Sexuality Education Provides:</h3>
+                <ul>
+                    <li><strong>Accurate Information:</strong> About physical and emotional changes</li>
+                    <li><strong>Health Protection:</strong> Understanding how to protect your well-being</li>
+                    <li><strong>Decision Making:</strong> Skills to make informed choices about your health</li>
+                    <li><strong>Reliable Sources:</strong> Learning where to find trustworthy information</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>The Goal</h3>
+                <p>Sexuality education aims to enable young people to protect their health and well-being, and make informed decisions about their sexual and reproductive health as they experience these changes.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Mutual Understanding and Self-Control -->
+        <div class="slide">
+            <h2>🤝 Mutual Understanding and Self-Control</h2>
+            
+            <p>This is a crucial aspect of safe behavior. Sexual desires naturally occur during adolescence, but learning self-control is important for your overall development.</p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="icon">⏰</span>
+                    <h3>Patience is Key</h3>
+                    <p>Premature actions can affect both your body and mind</p>
+                </div>
+                <div class="info-card">
+                    <span class="icon">📚</span>
+                    <h3>Focus on Studies</h3>
+                    <p>Think about your education and career goals</p>
+                </div>
+                <div class="info-card">
+                    <span class="icon">👫</span>
+                    <h3>Respect Friends</h3>
+                    <p>Acting against someone's will damages relationships</p>
+                </div>
+            </div>
+            
+            <div class="key-points">
+                <h3>Benefits of Self-Control:</h3>
+                <ul>
+                    <li><strong>Academic Success:</strong> Better focus on studies and career preparation</li>
+                    <li><strong>Healthy Relationships:</strong> Learning to respect others' feelings and boundaries</li>
+                    <li><strong>Personal Growth:</strong> Developing patience and maturity</li>
+                    <li><strong>Future Readiness:</strong> Preparing for healthy adult relationships</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>💡 Remember</h3>
+                <p>You must understand and respect the feelings of others. Mutual understanding is the foundation of all healthy relationships.</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Adolescent Friendly Sexual and Reproductive Health Services -->
+        <div class="slide">
+            <h2>🏥 Adolescent Friendly Health Services</h2>
+            
+            <p>Most adolescents lack proper information about sexual and reproductive health. The knowledge they have often comes from unreliable sources like friends or the internet.</p>
+            
+            <div class="warning-box">
+                <h3>⚠️ Why These Services Are Needed</h3>
+                <p>Lack of proper information combined with hormonal changes can lead to unhealthy activities like unprotected sex, STDs, and unwanted pregnancy - potentially ruining young lives.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Counselling</h3>
+                    <p>Friendly guidance and support</p>
+                </div>
+                <div class="service-item">
+                    <h3>Health Information</h3>
+                    <p>Accurate facts about body changes</p>
+                </div>
+                <div class="service-item">
+                    <h3>Contraceptive Education</h3>
+                    <p>Understanding protection methods</p>
+                </div>
+                <div class="service-item">
+                    <h3>STD Prevention</h3>
+                    <p>Information about staying healthy</p>
+                </div>
+            </div>
+            
+            <div class="contraceptive-grid">
+                <div class="contraceptive-item">Male Condom</div>
+                <div class="contraceptive-item">Female Condom</div>
+                <div class="contraceptive-item">Emergency Contraception</div>
+                <div class="contraceptive-item">Health Education</div>
+            </div>
+            
+            <div class="key-points">
+                <h3>Service Goals:</h3>
+                <ul>
+                    <li>Help adolescents form good health habits at the right time</li>
+                    <li>Reduce risks of death and diseases among adolescents</li>
+                    <li>Provide accurate information about sexual and health issues</li>
+                    <li>Discuss safe practices and guide toward healthy choices</li>
+                    <li>Provide emergency support when needed</li>
+                    <li>Address curiosity about sexuality in a healthy way</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === totalSlides - 1;
+        }
+        
+        function changeSlide(direction) {
+            const newIndex = currentSlideIndex + direction;
+            if (newIndex >= 0 && newIndex < totalSlides) {
+                currentSlideIndex = newIndex;
+                showSlide(currentSlideIndex);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') changeSlide(-1);
+            if (event.key === 'ArrowRight') changeSlide(1);
+        });
+        
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
