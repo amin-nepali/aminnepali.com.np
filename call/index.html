@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chat-container {
+        width: 95%;
+        max-width: 1200px;
+        height: 90vh;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .header {
+        background: linear-gradient(90deg, #4CAF50, #45a049);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    .status {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ff4444;
+        animation: pulse 2s infinite;
+    }
+
+    .status-indicator.connected {
+        background: #4CAF50;
+    }
+
+    @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
+    }
+
+    .main-content {
+        flex: 1;
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .chat-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .video-section {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .messages {
+        flex: 1;
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 20px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        border: 2px solid #e9ecef;
+    }
+
+    .message {
+        margin-bottom: 15px;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message.own {
+        text-align: right;
+    }
+
+    .message.own .message-bubble {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        margin-left: auto;
+    }
+
+    .message.other .message-bubble {
+        background: white;
+        border: 2px solid #e9ecef;
+    }
+
+    .message-bubble {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 20px;
+        max-width: 70%;
+        word-wrap: break-word;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .message-time {
+        font-size: 11px;
+        opacity: 0.7;
+        margin-top: 5px;
+    }
+
+    .input-section {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .message-input {
+        flex: 1;
+        padding: 15px 20px;
+        border: 2px solid #e9ecef;
+        border-radius: 25px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .message-input:focus {
+        border-color: #667eea;
+    }
+
+    .control-btn {
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .send-btn {
+        background: linear-gradient(135deg, #4CAF50, #45a049);
+        color: white;
+    }
+
+    .send-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+    }
+
+    .voice-btn {
+        background: linear-gradient(135deg, #2196F3, #1976D2);
+        color: white;
+    }
+
+    .voice-btn.active {
+        background: linear-gradient(135deg, #f44336, #d32f2f);
+    }
+
+    .video-btn {
+        background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+        color: white;
+    }
+
+    .video-btn.active {
+        background: linear-gradient(135deg, #f44336, #d32f2f);
+    }
+
+    .video-container {
+        position: relative;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+    }
+
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-label {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+
+    .connection-info {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .main-content {
+            flex-direction: column;
+        }
+        
+        .video-section {
+            width: 100%;
+            flex-direction: row;
+            gap: 10px;
+        }
+        
+        .video-container {
+            flex: 1;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <h1>Real-Time Chat</h1>
+            <div class="status">
+                <span id="statusText">Connecting...</span>
+                <div class="status-indicator" id="statusIndicator"></div>
+            </div>
+        </div>
+
+```
+    <div class="main-content">
+        <div class="chat-section">
+            <div class="messages" id="messages"></div>
+            <div class="input-section">
+                <input type="text" class="message-input" id="messageInput" placeholder="Type your message..." maxlength="500">
+                <button class="control-btn send-btn" id="sendBtn" title="Send message">📤</button>
+                <button class="control-btn voice-btn" id="voiceBtn" title="Toggle voice chat">🎤</button>
+                <button class="control-btn video-btn" id="videoBtn" title="Toggle video chat">📹</button>
+            </div>
+        </div>
+        
+        <div class="video-section">
+            <div class="video-container">
+                <video id="localVideo" autoplay muted></video>
+                <div class="video-label">You</div>
+            </div>
+            <div class="video-container">
+                <video id="remoteVideo" autoplay></video>
+                <div class="video-label">Friend</div>
+            </div>
+            <div class="connection-info" id="connectionInfo">
+                <div>Your ID: <span id="localId">Generating...</span></div>
+                <div>Status: <span id="connectionStatus">Waiting for peer...</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    class ChatApp {
+        constructor() {
+            this.localId = this.generateId();
+            this.peerId = null;
+            this.peerConnection = null;
+            this.dataChannel = null;
+            this.localStream = null;
+            this.isVideoEnabled = false;
+            this.isVoiceEnabled = false;
+            this.isConnected = false;
+
+            this.initializeElements();
+            this.setupEventListeners();
+            this.initializeConnection();
+            this.simulateAutoConnection();
+        }
+
+        generateId() {
+            return Math.random().toString(36).substr(2, 8);
+        }
+
+        initializeElements() {
+            this.elements = {
+                messages: document.getElementById('messages'),
+                messageInput: document.getElementById('messageInput'),
+                sendBtn: document.getElementById('sendBtn'),
+                voiceBtn: document.getElementById('voiceBtn'),
+                videoBtn: document.getElementById('videoBtn'),
+                localVideo: document.getElementById('localVideo'),
+                remoteVideo: document.getElementById('remoteVideo'),
+                statusText: document.getElementById('statusText'),
+                statusIndicator: document.getElementById('statusIndicator'),
+                localId: document.getElementById('localId'),
+                connectionStatus: document.getElementById('connectionStatus')
+            };
+
+            this.elements.localId.textContent = this.localId;
+        }
+
+        setupEventListeners() {
+            this.elements.sendBtn.addEventListener('click', () => this.sendMessage());
+            this.elements.messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') this.sendMessage();
+            });
+            this.elements.voiceBtn.addEventListener('click', () => this.toggleVoice());
+            this.elements.videoBtn.addEventListener('click', () => this.toggleVideo());
+        }
+
+        async initializeConnection() {
+            try {
+                this.peerConnection = new RTCPeerConnection({
+                    iceServers: [
+                        { urls: 'stun:stun.l.google.com:19302' },
+                        { urls: 'stun:stun1.l.google.com:19302' }
+                    ]
+                });
+
+                this.dataChannel = this.peerConnection.createDataChannel('chat');
+                this.setupDataChannel(this.dataChannel);
+
+                this.peerConnection.ondatachannel = (event) => {
+                    this.setupDataChannel(event.channel);
+                };
+
+                this.peerConnection.ontrack = (event) => {
+                    this.elements.remoteVideo.srcObject = event.streams[0];
+                };
+
+                this.peerConnection.onicecandidate = (event) => {
+                    if (event.candidate) {
+                        console.log('ICE candidate generated');
+                    }
+                };
+
+                this.peerConnection.onconnectionstatechange = () => {
+                    this.updateConnectionStatus();
+                };
+
+            } catch (error) {
+                console.error('Error initializing connection:', error);
+                this.addMessage('System', 'Connection initialization failed', 'system');
+            }
+        }
+
+        setupDataChannel(channel) {
+            channel.onopen = () => {
+                this.isConnected = true;
+                this.updateConnectionStatus();
+                this.addMessage('System', 'Connected! You can now chat.', 'system');
+            };
+
+            channel.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                if (data.type === 'message') {
+                    this.addMessage('Friend', data.content, 'other');
+                }
+            };
+
+            channel.onclose = () => {
+                this.isConnected = false;
+                this.updateConnectionStatus();
+                this.addMessage('System', 'Disconnected from peer', 'system');
+            };
+        }
+
+        simulateAutoConnection() {
+            // Simulate finding and connecting to another user
+            setTimeout(() => {
+                this.peerId = this.generateId();
+                this.elements.connectionStatus.textContent = `Connected to ${this.peerId}`;
+                this.isConnected = true;
+                this.updateConnectionStatus();
+                this.addMessage('System', `Auto-connected to user ${this.peerId}`, 'system');
+                
+                // Simulate receiving a welcome message
+                setTimeout(() => {
+                    this.addMessage('Friend', 'Hello! I\'m connected and ready to chat! 👋', 'other');
+                }, 1000);
+            }, 2000);
+        }
+
+        updateConnectionStatus() {
+            const status = this.elements.statusIndicator;
+            const text = this.elements.statusText;
+            
+            if (this.isConnected) {
+                status.classList.add('connected');
+                text.textContent = 'Connected';
+                this.elements.connectionStatus.textContent = `Connected to ${this.peerId || 'peer'}`;
+            } else {
+                status.classList.remove('connected');
+                text.textContent = 'Connecting...';
+                this.elements.connectionStatus.textContent = 'Waiting for peer...';
+            }
+        }
+
+        sendMessage() {
+            const input = this.elements.messageInput;
+            const message = input.value.trim();
+            
+            if (message && this.isConnected) {
+                this.addMessage('You', message, 'own');
+                
+                // Simulate sending to peer
+                if (this.dataChannel && this.dataChannel.readyState === 'open') {
+                    this.dataChannel.send(JSON.stringify({
+                        type: 'message',
+                        content: message
+                    }));
+                }
+                
+                // Simulate auto-response for demo
+                setTimeout(() => {
+                    const responses = [
+                        'That\'s interesting! Tell me more.',
+                        'I agree with that point.',
+                        'Really? That\'s cool!',
+                        'Thanks for sharing that.',
+                        'What do you think about it?',
+                        'That makes sense to me.',
+                        'I hadn\'t thought of it that way.'
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    this.addMessage('Friend', randomResponse, 'other');
+                }, 1000 + Math.random() * 2000);
+                
+                input.value = '';
+            } else if (!this.isConnected) {
+                this.addMessage('System', 'Not connected to a peer yet...', 'system');
+            }
+        }
+
+        addMessage(sender, content, type) {
+            const messagesContainer = this.elements.messages;
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            messageDiv.innerHTML = `
+                <div class="message-bubble">
+                    ${type !== 'system' ? `<strong>${sender}:</strong> ` : ''}${content}
+                </div>
+                <div class="message-time">${time}</div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        async toggleVoice() {
+            try {
+                if (!this.isVoiceEnabled) {
+                    this.localStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    this.localStream.getTracks().forEach(track => {
+                        this.peerConnection.addTrack(track, this.localStream);
+                    });
+                    this.isVoiceEnabled = true;
+                    this.elements.voiceBtn.classList.add('active');
+                    this.addMessage('System', 'Voice chat enabled', 'system');
+                } else {
+                    if (this.localStream) {
+                        this.localStream.getTracks().forEach(track => track.stop());
+                    }
+                    this.isVoiceEnabled = false;
+                    this.elements.voiceBtn.classList.remove('active');
+                    this.addMessage('System', 'Voice chat disabled', 'system');
+                }
+            } catch (error) {
+                console.error('Voice toggle error:', error);
+                this.addMessage('System', 'Could not access microphone', 'system');
+            }
+        }
+
+        async toggleVideo() {
+            try {
+                if (!this.isVideoEnabled) {
+                    this.localStream = await navigator.mediaDevices.getUserMedia({ 
+                        video: true, 
+                        audio: this.isVoiceEnabled 
+                    });
+                    this.elements.localVideo.srcObject = this.localStream;
+                    
+                    this.localStream.getTracks().forEach(track => {
+                        this.peerConnection.addTrack(track, this.localStream);
+                    });
+                    
+                    this.isVideoEnabled = true;
+                    this.elements.videoBtn.classList.add('active');
+                    this.addMessage('System', 'Video chat enabled', 'system');
+                } else {
+                    if (this.localStream) {
+                        this.localStream.getTracks().forEach(track => track.stop());
+                    }
+                    this.elements.localVideo.srcObject = null;
+                    this.isVideoEnabled = false;
+                    this.elements.videoBtn.classList.remove('active');
+                    this.addMessage('System', 'Video chat disabled', 'system');
+                }
+            } catch (error) {
+                console.error('Video toggle error:', error);
+                this.addMessage('System', 'Could not access camera', 'system');
+            }
+        }
+    }
+
+    // Initialize the chat app when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        new ChatApp();
+    });
+</script>
+```
+
+</body>
+</html>
