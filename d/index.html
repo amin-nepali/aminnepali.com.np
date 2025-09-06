@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Logic Practice - Exam Study Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #e0e6ed;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(45deg, #2c5aa0, #1976d2);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #b3e5fc;
+            font-weight: 300;
+        }
+
+        .strategy-box {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #64b5f6;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .strategy-box h3 {
+            color: #81d4fa;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .priority-section {
+            background: linear-gradient(135deg, #263238, #37474f);
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .priority-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .priority-header {
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .priority-header:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .priority-badge {
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .high-priority .priority-badge {
+            background: linear-gradient(45deg, #f44336, #e91e63);
+            color: white;
+        }
+
+        .medium-priority .priority-badge {
+            background: linear-gradient(45deg, #ff9800, #ffc107);
+            color: #333;
+        }
+
+        .priority-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            flex-grow: 1;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            color: #81d4fa;
+            transition: transform 0.3s ease;
+        }
+
+        .priority-content {
+            padding: 0 25px 25px;
+            display: none;
+        }
+
+        .priority-content.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topic-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .topic-section h4 {
+            color: #4fc3f7;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .topic-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        .practice-questions {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            margin: 15px 0;
+        }
+
+        .practice-questions h5 {
+            color: #81c784;
+            margin-bottom: 10px;
+        }
+
+        .practice-questions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .practice-questions li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .practice-questions li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+        }
+
+        .key-formula {
+            background: linear-gradient(135deg, #673ab7, #9c27b0);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid rgba(156, 39, 176, 0.3);
+        }
+
+        .key-formula strong {
+            color: #ce93d8;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #ff5722, #f57c00);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: white;
+        }
+
+        .checklist {
+            background: linear-gradient(135deg, #2e7d32, #388e3c);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .checklist h3 {
+            color: #a5d6a7;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .checklist-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            accent-color: #4caf50;
+        }
+
+        .bonus-tip {
+            background: linear-gradient(135deg, #ffa000, #ffb300);
+            padding: 25px;
+            border-radius: 15px;
+            color: #333;
+            margin: 30px 0;
+        }
+
+        .bonus-tip h3 {
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+
+        .weightage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .weightage-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .weightage-percent {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .time-management {
+            background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .priority-header {
+                padding: 15px 20px;
+            }
+
+            .priority-content {
+                padding: 0 20px 20px;
+            }
+
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #2196f3, #21cbf3);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Digital Logic Practice</h1>
+            <p class="subtitle">High Priority Questions for Tomorrow's Exam</p>
+        </div>
+
+        <div class="strategy-box">
+            <h3>📚 Study Strategy</h3>
+            <p>Focus on these high-frequency topics. Most Digital Logic exams heavily test <strong>Number Systems</strong>, <strong>Boolean Algebra</strong>, <strong>Flip-Flops</strong>, and <strong>Counters</strong>.</p>
+        </div>
+
+        <div class="priority-section high-priority">
+            <div class="priority-header" onclick="toggleSection(this)">
+                <span class="priority-badge">High Priority</span>
+                <span class="priority-title">1. Number System Conversions & Arithmetic</span>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="priority-content">
+                <div class="practice-questions">
+                    <h5>🔥 Practice Questions:</h5>
+                    <ul>
+                        <li>Convert (240)₁₀ to (?)₈ and (CAB)₁₆ to (?)₂</li>
+                        <li>If A = -13 and B = 500, find A-B using 2's complement</li>
+                        <li>Subtract 10101 from 11011 using 2's complement method</li>
+                    </ul>
+                </div>
+                <div class="topic-section">
+                    <h4><span class="topic-icon">🔢</span>Topics Covered</h4>
+                    <p>Binary, Octal, Hexadecimal conversions, 2's complement arithmetic</p>
+                </div>
+                <div class="key-formula">
+                    <strong>Key Formula:</strong> For 2's complement: Invert all bits + Add 1
+                </div>
+            </div>
+        </div>
+
+        <div class="priority-section high-priority">
+            <div class="priority-header" onclick="toggleSection(this)">
+                <span class="priority-badge">High Priority</span>
+                <span class="priority-title">2. Boolean Algebra & K-Map Simplification</span>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="priority-content">
+                <div class="practice-questions">
+                    <h5>🔥 Must Practice:</h5>
+                    <ul>
+                        <li>Minimize: P'QRS + P'QR' + PQS + Q'R'S + P'QR' + P'R' + Q'R'</li>
+                        <li>Find simplified expression for given K-Map groups</li>
+                        <li>Prove: A'B' + AB' = B'</li>
+                    </ul>
+                </div>
+                <div class="topic-section">
+                    <h4><span class="topic-icon">🧮</span>Topics Covered</h4>
+                    <p>K-Map grouping, Boolean laws, Expression simplification</p>
+                </div>
+                <div class="tips-box">
+                    <strong>K-Map Tips:</strong> Group in powers of 2 (1,2,4,8,16). Larger groups = simpler expressions.
+                </div>
+            </div>
+        </div>
+
+        <div class="priority-section high-priority">
+            <div class="priority-header" onclick="toggleSection(this)">
+                <span class="priority-badge">High Priority</span>
+                <span class="priority-title">3. Flip-Flops (SR, JK, D, T)</span>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="priority-content">
+                <div class="topic-section">
+                    <h4><span class="topic-icon">⚡</span>Critical Topics</h4>
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>D Flip-Flop: Truth table, excitation table, timing diagram</li>
+                        <li>SR Flip-Flop characteristics: S + R'Q, S.R = 0</li>
+                        <li>Why JK flip-flop preferred over SR? (No invalid state)</li>
+                        <li>T Flip-Flop for toggle operations</li>
+                    </ul>
+                </div>
+                <div class="topic-section">
+                    <h4><span class="topic-icon">🔧</span>Applications</h4>
+                    <p>Shift registers, counters, memory elements</p>
+                </div>
+                <div class="key-formula">
+                    <strong>Remember:</strong> D = Data, SR = Set-Reset, JK = Jack-Kilby, T = Toggle
+                </div>
+            </div>
+        </div>
+
+        <div class="priority-section high-priority">
+            <div class="priority-header" onclick="toggleSection(this)">
+                <span class="priority-badge">High Priority</span>
+                <span class="priority-title">4. Counters (Asynchronous & Synchronous)</span>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="priority-content">
+                <div class="practice-questions">
+                    <h5>🔥 High-Frequency Questions:</h5>
+                    <ul>
+                        <li>Design MOD-16, MOD-10, MOD-99 counters</li>
+                        <li>Ring counter vs Johnson counter differences</li>
+                        <li>How many flip-flops for counting 200 states? (⌈log₂(200)⌉ = 8)</li>
+                        <li>Synchronous vs Asynchronous counter timing diagrams</li>
+                    </ul>
+                </div>
+                <div class="topic-section">
+                    <h4><span class="topic-icon">📊</span>Key Concepts</h4>
+                    <p>Clock pulse propagation, counting sequences, state diagrams</p>
+                </div>
+                <div class="key-formula">
+                    <strong>Formula:</strong> For MOD-N counter, you need ⌈log₂(N)⌉ flip-flops
+                </div>
+            </div>
+        </div>
+
+        <div class="priority-section medium-priority">
+            <div class="priority-header" onclick="toggleSection(this)">
+                <span class="priority-badge">Medium Priority</span>
+                <span class="priority-title">5. Combinational Circuits</span>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="priority-content">
+                <div class="practice-questions">
+                    <h5>🔥 Common Questions:</h5>
+                    <ul>
+                        <li>Design 8×3 Encoder and 4×16 Decoder</li>
+                        <li>Seven-segment display circuit for digits 2,3,5,8</li>
+                        <li>Multiplexer applications and selection lines</li>
+                    </ul>
+                </div>
+                <div class="topic-section">
+                    <h4><span class="topic-icon">🔌</span>Topics Covered</h4>
+                    <p>Encoders, Decoders, Multiplexers, Display systems</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="priority-section medium-priority">
+            <div class="priority-header" onclick="toggleSection(this)">
+                <span class="priority-badge">Medium Priority</span>
+                <span class="priority-title">6. Logic Gates & Universal Gates</span>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="priority-content">
+                <div class="topic-section">
+                    <h4><span class="topic-icon">🚪</span>Important Concepts</h4>
+                    <ul style="list-style-type: disc; padding-left: 20px;">
+                        <li>NAND and NOR as universal gates</li>
+                        <li>XOR gate applications: A⊕B = A'B + AB'</li>
+                        <li>De Morgan's theorems and gate conversions</li>
+                        <li>Truth tables for all basic gates</li>
+                    </ul>
+                </div>
+                <div class="topic-section">
+                    <h4><span class="topic-icon">⚙️</span>Applications</h4>
+                    <p>Gate-level circuit design, Logic optimization</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checklist">
+            <h3>🚀 Last-Minute Revision Checklist</h3>
+            <div class="checklist-grid">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Number system conversion formulas</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">2's complement arithmetic method</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">Boolean algebra laws (Associative, Commutative, Distributive)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">K-Map grouping rules and simplification</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">All flip-flop truth tables and applications</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">Counter design procedures (MOD calculations)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check7">
+                    <label for="check7">Universal gates (NAND/NOR) implementations</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check8">
+                    <label for="check8">Encoder/Decoder pin configurations</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="time-management">
+            <h3>⏰ Time Management</h3>
+            <p>In a 3-hour exam, spend 30 minutes on each major question. Start with topics you're most confident about. Keep 30 minutes for review.</p>
+        </div>
+
+        <div class="bonus-tip">
+            <h3>💡 BONUS TIP - Expected Question Patterns</h3>
+            <p>Based on previous exam papers, expect the following weightage distribution:</p>
+            <div class="weightage-grid">
+                <div class="weightage-card">
+                    <div class="weightage-percent">40%</div>
+                    <div>Number systems + Boolean algebra</div>
+                </div>
+                <div class="weightage-card">
+                    <div class="weightage-percent">30%</div>
+                    <div>Flip-flops + Counters</div>
+                </div>
+                <div class="weightage-card">
+                    <div class="weightage-percent">20%</div>
+                    <div>Combinational circuits</div>
+                </div>
+                <div class="weightage-card">
+                    <div class="weightage-percent">10%</div>
+                    <div>Miscellaneous (State diagrams, etc.)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        // Save checkbox states in session storage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checkboxStates = {};
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    checkboxStates[cb.id] = cb.checked;
+                });
+                // Store in memory during session only
+                window.checkboxStates = checkboxStates;
+            });
+        });
+
+        // Load checkbox states
+        window.addEventListener('load', function() {
+            if (window.checkboxStates) {
+                for (const [id, checked] of Object.entries(window.checkboxStates)) {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = checked;
+                    }
+                }
+            }
+        });
+
+        // Add smooth animations to priority sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.priority-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
